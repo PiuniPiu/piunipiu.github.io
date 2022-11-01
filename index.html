@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript>
-	<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	<script src="https://embed.twitch.tv/embed/v1.js"></script>
 </head>
 
@@ -44,15 +44,14 @@
 					deseas, desde la <a href="https://twitch.tv/piunipiu">página oficial de Twitch</a></p>
 				<div class="twitch">
 					<div class="twitch-video">
-						<iframe
-							src="https://player.twitch.tv/?channel=piunipiu&parent=piunipiu.ml&autoplay=true"
+						<iframe src="https://player.twitch.tv/?channel=piunipiu&parent=piunipiu.ml&autoplay=true"
 							frameborder="0" scrolling="no" allowfullscreen="true" height="100%" width="100%">
 						</iframe>
 					</div>
 					<div class="twitch-chat">
 						<iframe frameborder="0" scrolling="no"
-							src="https://www.twitch.tv/embed/piunipiu/chat?parent=piunipiu.ml"
-							height="100%" width="100%">
+							src="https://www.twitch.tv/embed/piunipiu/chat?parent=piunipiu.ml" height="100%"
+							width="100%">
 						</iframe>
 					</div>
 				</div>
@@ -70,7 +69,7 @@
 
 			<article id="instagram">
 				<h2 class="major">Instagram</h2>
-				<p>Tarda un pelín debido a un fix, lamentamos las molestias.</p>
+				<p>Tarda unos segundos debido a un fix, lamentamos las molestias.</p>
 				<script>
 					function delayRedirect() {
 						document.getElementById('delayMsg').innerHTML =
@@ -89,11 +88,21 @@
 						window.location = 'https://instagram.com/piunipiu';
 					}
 				</script>
+				<script>
+					function sleep(milliseconds) {
+						const date = Date.now();
+						let currentDate = null;
+						do {
+							currentDate = Date.now();
+						} while (currentDate - date < milliseconds);
+					}
+				</script>
 				<div id="delayMsg"></div>
 				<script>
 					window.setInterval(function () {
-							if (window.location.href === "https://piunipiu.ml/#instagram") {
-								delayRedirect();
+						if (window.location.href === "https://piunipiu.ml/#instagram") {
+							delayRedirect();
+							sleep(15000);
 						}
 					}, 2500);
 				</script>
