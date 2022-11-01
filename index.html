@@ -30,6 +30,7 @@
 				<ul>
 					<li><a href="#twitch">Twitch</a></li>
 					<li><a href="#twitter">Twitter</a></li>
+					<li><a href="#comms">Comisiones y Portfolio</a></li>
 					<li><a href="#instagram">Instagram</a></li>
 					<li><a href="#youtube">YouTube</a></li>
 				</ul>
@@ -44,7 +45,7 @@
 					deseas, desde la <a href="https://twitch.tv/piunipiu">página oficial de Twitch</a></p>
 				<div class="twitch">
 					<div class="twitch-video">
-						<iframe src="https://player.twitch.tv/?channel=piunipiu&parent=piunipiu.ml&autoplay=true"
+						<iframe src="https://player.twitch.tv/?channel=piunipiu&parent=piunipiu.ml&autoplay=false"
 							frameborder="0" scrolling="no" allowfullscreen="true" height="100%" width="100%">
 						</iframe>
 					</div>
@@ -71,40 +72,34 @@
 				<h2 class="major">Instagram</h2>
 				<p>Tarda unos segundos debido a un fix, lamentamos las molestias.</p>
 				<script>
-					function delayRedirect() {
-						document.getElementById('delayMsg').innerHTML =
-							'Serás redirigido después de <span id="countDown">10</span> segundos. <br></br> De este modo ayudas a Piuni sin hacer nada!';
-						var count = 10;
-						setInterval(function () {
-							count--;
-							document.getElementById('countDown').innerHTML = count;
-							if (count == 0) {
-								window.location = 'https://instagram.com/piunipiu';
+					var redirect = (function () {
+						var executed = false;
+						return function () {
+							if (!executed) {
+								executed = true;
+								document.getElementById('delayMsg').innerHTML =
+									'Serás redirigido después de <span id="countDown">10</span> segundos. <br></br> De este modo ayudas a Piuni sin hacer nada!';
+								var count = 10;
+								setInterval(function () {
+									count--;
+									document.getElementById('countDown').innerHTML = count;
+									if (count == 0) {
+										window.location = 'https://instagram.com/piunipiu';
+									}
+								}, 1000);
 							}
-						}, 1000);
-					}
-
-					function Redirect() {
-						window.location = 'https://instagram.com/piunipiu';
-					}
+						};
+					})();
 				</script>
 				<script>
-					function sleep(milliseconds) {
-						const date = Date.now();
-						let currentDate = null;
-						do {
-							currentDate = Date.now();
-						} while (currentDate - date < milliseconds);
-					}
 				</script>
 				<div id="delayMsg"></div>
 				<script>
 					window.setInterval(function () {
-						if (window.location.href === "https://piunipiu.ml/#instagram") {
-							delayRedirect();
-							
+						if (window.location.href === "http://localhost:7000/#instagram") {
+							redirect();
 						}
-						sleep(15000);
+
 					}, 2500);
 				</script>
 			</article>
